@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Search from "./components/Search";
-
+import storm from "./img/weather-icons/storm.svg";
 import SayHi, { SayHello } from "./components/WeatherItem";
 import fakeWeatherData from "./fakeWeatherData.json";
 
@@ -14,6 +14,7 @@ class App extends Component {
     };
   }
 
+ 
   handleInputChange = value => {
     this.setState({ name: value });
   };
@@ -21,9 +22,12 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <SayHi />
-        <SayHello color="black" name={this.state.name} />
-        <Search handleInput={this.handleInputChange} />
+        <div className="app__header">
+          <Search handleInput={this.handleInputChange} />
+        </div>
+        <div className="app__main">
+        <img src={storm}  className="img" alt="storm icon" />
+        </div>
       </div>
     );
   }
